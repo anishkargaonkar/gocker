@@ -16,3 +16,4 @@ services:
       - .env
     ports:
       - 2345:2345 # Ports using for debuging with dlv
+      - 9652:9652 # Ports using for debuging with dlv

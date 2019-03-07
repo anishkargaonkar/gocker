@@ -2,9 +2,18 @@ package main
 
 import (
 	"fmt"
+	"net/http"
+	"os"
 )
 
 func main() {
-	v := 2
-	fmt.Print("Hello, world.\n", v)
+	var PORT string
+	if PORT = os.Getenv("PORT"); PORT == "" {
+		PORT = "9652"
+	}
+	fmt.Print("Server Started !!")
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello World from path : %s\n", r.URL.Path)
+	})
+	http.ListenAndServe(":"+PORT, nil)
 }
