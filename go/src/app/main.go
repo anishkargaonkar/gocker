@@ -13,7 +13,12 @@ func main() {
 	}
 	fmt.Print("Server Started !!")
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello World from path : %s\n", r.URL.Path)
+		fmt.Fprintf(w, test(), r.URL.Path)
+
 	})
 	http.ListenAndServe(":"+PORT, nil)
+}
+
+func test() string {
+	return `Hello World from path : %s\n`
 }
