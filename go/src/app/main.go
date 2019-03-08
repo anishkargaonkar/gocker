@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+
 	var PORT string
 	if PORT = os.Getenv("PORT"); PORT == "" {
 		PORT = "9652"
@@ -20,5 +21,5 @@ func main() {
 }
 
 func test() string {
-	return `Hello World from path : %s\n`
+	return `Hello World from path: %s\n`
 }
